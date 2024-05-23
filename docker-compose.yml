@@ -1,17 +1,17 @@
-version: '3.8'
+version: "3.8"
 
 volumes:
   dbdata_mysql_maria:
 
 services:
   php:
-    image: yiisoftware/yii2-php:8.1-apache
+    image: yiisoftware/yii2-php:8.3-apache
     container_name: americor-app
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./:/app:delegated
     ports:
-      - '8000:80'
+      - "8000:80"
     depends_on:
       - mysql
     restart: on-failure
