@@ -50,3 +50,7 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+
+# ENV files
+.env
+.env.*

@@ -20,7 +20,9 @@ use yii\widgets\Pjax;
 
         <div class="pull-sm-right">
             <?php if (!empty($linkExport)) {
-                echo Html::a(Yii::t('app', 'CSV'), $linkExport,
+                echo Html::a(
+                    Yii::t('app', 'CSV aaaa'),
+                    $linkExport,
                     [
                         'class' => 'btn btn-success',
                         'data-pjax' => 0
@@ -44,7 +46,7 @@ use yii\widgets\Pjax;
         'class' => 'list-group-item'
     ],
     'emptyTextOptions' => ['class' => 'empty p-20'],
-    'layout' => '{items}{pager}',
+    'layout' => '{items}<hr>{pager}',
 ]); ?>
 
 <?php Pjax::end(); ?>

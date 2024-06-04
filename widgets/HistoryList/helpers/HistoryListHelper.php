@@ -18,7 +18,7 @@ class HistoryListHelper
                 return "$model->eventText: " . ($task->title ?? '');
             case History::EVENT_INCOMING_SMS:
             case History::EVENT_OUTGOING_SMS:
-                return $model->sms->message ? $model->sms->message : '';
+                return isset($model->sms) ? ($model->sms->message ? $model->sms->message : '') : '';
             case History::EVENT_OUTGOING_FAX:
             case History::EVENT_INCOMING_FAX:
                 return $model->eventText;

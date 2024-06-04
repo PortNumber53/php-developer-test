@@ -2,10 +2,11 @@
 
 namespace app\models;
 
-use app\models\traits\ObjectNameTrait;
+// use app\models\traits\ObjectNameTrait;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+// use yii\db\ActiveRelationTrait;
 
 /**
  * This is the model class for table "{{%history}}".
@@ -31,7 +32,8 @@ use yii\db\ActiveRecord;
  */
 class History extends ActiveRecord
 {
-    use ObjectNameTrait;
+    // use ObjectNameTrait;
+    // use ActiveRelationTrait;
 
     const EVENT_CREATED_TASK = 'created_task';
     const EVENT_UPDATED_TASK = 'updated_task';
@@ -105,6 +107,50 @@ class History extends ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSms()
+    {
+        return $this->hasOne(Sms::class, [
+            'user_id' => 'user_id',
+            'customer_id' => 'customer_id'
+        ]);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getTask()
+    {
+        return $this->hasOne(Task::class, [
+            'user_id' => 'user_id',
+            'customer_id' => 'customer_id'
+        ]);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getCall()
+    {
+        return $this->hasOne(Call::class, [
+            'user_id' => 'user_id',
+            'customer_id' => 'customer_id'
+        ]);
+    }
+
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getFax()
+    {
+        return $this->hasOne(Fax::class, [
+            'user_id' => 'user_id',
+        ]);
     }
 
     /**
