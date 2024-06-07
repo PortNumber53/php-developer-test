@@ -84,12 +84,12 @@ class TaskService extends BaseService
     public static function getBody(History $model)
     {
         $task = $model->task;
-        return "[EVENT]$model->eventText: " . ($task->title ?? '');
+        return "$model->eventText: " . ($task->title ?? '');
     }
 
     public static function getFooter($object)
     {
-        return isset($object->customerCreditor->name) ? "FOOTER__ Creditor: " . $object->customerCreditor->name : '';
+        return isset($object->customerCreditor->name) ? "Creditor: " . $object->customerCreditor->name : '';
     }
 
     public static function getIconClass()
