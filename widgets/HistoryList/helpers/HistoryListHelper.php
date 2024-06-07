@@ -8,6 +8,9 @@ use app\models\History;
 
 class HistoryListHelper
 {
+    /**
+     * Only used by the export feature
+     */
     public static function getBodyByModel(History $model)
     {
         switch ($model->event) {

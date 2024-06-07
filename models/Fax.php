@@ -29,6 +29,9 @@ class Fax extends ActiveRecord
     const TYPE_POA_ATC = 'poa_atc';
     const TYPE_REVOCATION_NOTICE = 'revocation_notice';
 
+    const EVENT_INCOMING_FAX = 'incoming_fax';
+    const EVENT_OUTGOING_FAX = 'outgoing_fax';
+
     /**
      * @inheritdoc
      */
@@ -72,24 +75,4 @@ class Fax extends ActiveRecord
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
-
-    /**
-     * @return array
-     */
-    public static function getTypeTexts()
-    {
-        return [
-            self::TYPE_POA_ATC => Yii::t('app', 'POA/ATC'),
-            self::TYPE_REVOCATION_NOTICE => Yii::t('app', 'Revocation'),
-        ];
-    }
-
-    /**
-     * @return mixed|string
-     */
-    public function getTypeText()
-    {
-        return self::getTypeTexts()[$this->type] ?? $this->type;
-    }
-
 }

@@ -34,7 +34,7 @@ use yii\helpers\Html;
 
 <?php if (isset($footer) || isset($footerDatetime)) : ?>
     <div class="bg-warning">
-        <?php echo isset($footer) ? ">> $footer <<" : '' ?>
+        <?php echo isset($footer) ? "$footer" : '' ?>
         <?php if (isset($footerDatetime)) : ?>
             <span><?= \app\widgets\DateTime\DateTime::widget(['dateTime' => $footerDatetime]) ?></span>
         <?php endif; ?>
