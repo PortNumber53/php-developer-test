@@ -43,6 +43,10 @@ class Task extends ActiveRecord
     const STATE_DONE = 'done';
     const STATE_FUTURE = 'future';
 
+    const EVENT_CREATED_TASK = 'created_task';
+    const EVENT_UPDATED_TASK = 'updated_task';
+    const EVENT_COMPLETED_TASK = 'completed_task';
+
     /**
      * @inheritdoc
      */

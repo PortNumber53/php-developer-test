@@ -77,12 +77,4 @@ class User extends ActiveRecord
             self::STATUS_HIDDEN => Yii::t('app', 'Hidden'),
         ];
     }
-
-    /**
-     * @return string
-     */
-    public function getStatusText()
-    {
-        return self::getStatusTexts()[$this->status] ?? $this->status;
-    }
 }
